@@ -7,11 +7,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "ubuntu/trusty64"
 	config.vm.hostname = "devstack"
 	
-	config.vm.network :private_network, ip: "192.168.77.70"
+	config.vm.network :private_network, ip: "192.168.44.77"
 
 	config.vm.provider "virtualbox" do |vb|
 		vb.cpus = 2
-		vb.memory = 8192
+		vb.memory = 4096
 		vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
 	end
 
