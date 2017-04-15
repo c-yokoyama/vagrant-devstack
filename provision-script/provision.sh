@@ -1,21 +1,18 @@
 #!/bin/bash
-# 初回のみ本スクリプトを実行
-test -f /etc/provison && exit
+# Execute this script if initial deployment
+sudo test -f /etc/provison && exit
 
 sudo apt-get -y update
 sudo apt-get -y install git vim
-sudo apt-get install libffi-dev libssl-dev git vim libxml2-dev libsqlite3-dev libxslt1-dev -y
 
-# timezoneの変更 
-sudo  timedatectl set-timezone Asia/Tokyo
+# Change timezone
+sudo timedatectl set-timezone Asia/Tokyo
 
 git clone https://git.openstack.org/openstack-dev/devstack
 cd devstack
-# ブランチの切り替え
-git checkout -b stable/mitaka origin/stable/mitaka
+# Change branch
+git checkout -b stable/ocata origin/stable/ocata
 
-# stackユーザの作成
-sudo chmod -R 777 ../devstack
-echo "provision finished!!!"
-date > /etc/provision
+echo "Provision finished"
+sudo sh -c "date > /etc/provision"
 
