@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network :private_network, ip: "172.16.11.2"
 	config.vm.provider "virtualbox" do |vb|
 		vb.cpus = 2
-		vb.memory = 4096
+		vb.memory = 6144
 		vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
 	end
 
